@@ -1,33 +1,7 @@
 # Actividad 1 — Revisar la configuración de registro por defecto
 
-## 1. Comando ejecutado
-
-```sql
-SELECT name, setting, source FROM pg_settings
-WHERE name IN ('log_destination', 'logging_collector', 'log_directory', 'log_filename',
-               'log_connections', 'log_disconnections', 'log_line_prefix',
-               'log_statement', 'log_min_error_statement', 'log_timezone')
-ORDER BY name;
-```
-
- 
-
-## 2. Resultado obtenido
-
-| `name` | `setting` | `source` |
-| :--- | :--- | :--- |
-| `log_connections` | | |
-| `log_destination` | | |
-| `log_directory` | | |
-| `log_disconnections` | | |
-| `log_filename` | | |
-| `logging_collector` | | |
-| `log_line_prefix` | | |
-| `log_min_error_statement` | | |
-| `log_statement` | | |
-| `log_timezone` | | |
-
- 
+## Evidencias de querys
+![](../recursos/01_act1.png)
 
 ## 3. Preguntas de análisis
 
