@@ -6,8 +6,8 @@ GRANT SELECT, UPDATE ON clientes TO app_ventas;
 
 GRANT SELECT ON clientes TO soporte_ana;
 
-ALTER ROLE app_ventas WITH PASSWORD 'Ventas_Practica_2026';
-ALTER ROLE soporte_ana WITH PASSWORD 'Soporte_Practica_2026';
+ALTER ROLE app_ventas WITH PASSWORD '<REDACTED>';
+ALTER ROLE soporte_ana WITH PASSWORD '<REDACTED>';
 
 -- PARTE A — Bitácora del servidor
 -- 7. Actividad 1 — Revisar la configuración de registro por defecto

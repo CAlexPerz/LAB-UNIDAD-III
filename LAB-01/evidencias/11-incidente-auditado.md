@@ -27,10 +27,10 @@
 ### Preguntas de la Actividad 12
 
 1. **Compara tu hipótesis de la Actividad 11 con este resultado.**
-   >  
+    Se confirma la hipótesis: gracias a `SECURITY DEFINER`, el disparador escribió la auditoría usando los privilegios de `postgres` (`usuario_efectivo`), permitiendo a `app_ventas` actualizar `clientes` sin darle permisos de lectura ni escritura sobre `auditoria.cambios_clientes`.
 
 2. **Escribe la sentencia `UPDATE` que restauraría el valor anterior.**
-   >  
+    `UPDATE clientes SET rfc = 'GAMA780912XYZ' WHERE id = 3;`
 
 3. **¿Qué columna conserva más valor para una investigación: `aplicacion` o `ip_cliente`? ¿Cuál puede falsificar el cliente con más facilidad?**
-   >  
+    `ip_cliente` tiene mayor valor probatorio porque la obtiene el servidor desde la conexión de red; `aplicacion` (`application_name`) la declara el propio cliente y puede falsificarse fácilmente.
