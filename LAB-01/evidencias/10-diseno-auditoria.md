@@ -1,6 +1,6 @@
 # Actividad 10 — Diseñar y crear el registro de auditoría
 
-## 1. Diseño del registro de auditoría (`auditoria.cambios_clientes`)
+## Diseño del registro de auditoría (`auditoria.cambios_clientes`)
 
 | Campo propuesto | Tipo | ¿Qué pregunta responde? | ¿Puede ser nulo? ¿Por qué? |
 | :--- | :--- | :--- | :--- |
@@ -15,37 +15,16 @@
 | `valores_antes` | `JSONB` | | |
 | `valores_despues` | `JSONB` | | |
 
- 
+## Evidencias de querys
+![](../recursos/act10_01.png)
 
-## 2. Sentencias ejecutadas
-
-```sql
-CREATE SCHEMA auditoria;
-REVOKE ALL ON SCHEMA auditoria FROM PUBLIC;
-
-CREATE TABLE auditoria.cambios_clientes (
-    id_evento        BIGSERIAL PRIMARY KEY,
-    momento          TIMESTAMPTZ NOT NULL DEFAULT now(),
-    usuario_sesion   TEXT        NOT NULL DEFAULT session_user,
-    usuario_efectivo TEXT        NOT NULL DEFAULT current_user,
-    aplicacion       TEXT        DEFAULT current_setting('application_name'),
-    ip_cliente       INET        DEFAULT inet_client_addr(),
-    operacion        TEXT        NOT NULL,
-    id_cliente       BIGINT,
-    valores_antes    JSONB,
-    valores_despues  JSONB
-);
-```
-
- 
-
-## 3. Preguntas de análisis
+## Preguntas de análisis
 
 1. **¿Por qué `momento` usa `TIMESTAMPTZ` y no `TIMESTAMP`?**
-   >  
+    Porque `TIMESTAMPTZ` almacena el instante exacto en UTC y lo ajusta automáticamente a la zona horaria de consulta, evitando ambigüedades por cambios de horario o ubicación.
 
 2. **¿Por qué se guarda el registro completo en `JSONB` y no solo la columna que cambió?**
-   >  
+    Porque captura una fotografía completa de la fila en ese momento, permitiendo auditar cualquier columna modificada incluso si la estructura de `clientes` cambia en el futuro.
 
 3. **La tabla de auditoría también contendrá RFC. ¿Qué implica eso para su clasificación y su control de acceso?**
-   >  
+    Contiene datos personales sensibles (PII), por lo que debe clasificarse como confidencial y restringirse en un esquema privado (`auditoria`) sin acceso para `PUBLIC` ni roles operativos.
