@@ -15,31 +15,10 @@
 | `valores_antes` | `JSONB` | | |
 | `valores_despues` | `JSONB` | | |
 
- 
+## Evidencias de querys
+![](../recursos/act10_01.png)
 
-## 2. Sentencias ejecutadas
-
-```sql
-CREATE SCHEMA auditoria;
-REVOKE ALL ON SCHEMA auditoria FROM PUBLIC;
-
-CREATE TABLE auditoria.cambios_clientes (
-    id_evento        BIGSERIAL PRIMARY KEY,
-    momento          TIMESTAMPTZ NOT NULL DEFAULT now(),
-    usuario_sesion   TEXT        NOT NULL DEFAULT session_user,
-    usuario_efectivo TEXT        NOT NULL DEFAULT current_user,
-    aplicacion       TEXT        DEFAULT current_setting('application_name'),
-    ip_cliente       INET        DEFAULT inet_client_addr(),
-    operacion        TEXT        NOT NULL,
-    id_cliente       BIGINT,
-    valores_antes    JSONB,
-    valores_despues  JSONB
-);
-```
-
- 
-
-## 3. Preguntas de análisis
+## Preguntas de análisis
 
 1. **¿Por qué `momento` usa `TIMESTAMPTZ` y no `TIMESTAMP`?**
    >  

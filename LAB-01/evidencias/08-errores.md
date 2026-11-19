@@ -1,28 +1,9 @@
 # Actividad 8 — Errores y operaciones rechazadas
 
-## 1. Comandos ejecutados
-
-```bash
-psql "postgresql://soporte_ana:<REDACTED>@127.0.0.1/comercial" -c "DELETE FROM clientes WHERE id = 5"
-```
-
-```sql
-DROP ROLE soporte_ana;
-
-SELECT linea FROM dba.bitacora
-WHERE linea ~ '(ERROR|STATEMENT|DETAIL): (permission|privileges|role|DELETE|DROP)'
-ORDER BY num;
-```
-
- 
-
-## 2. Resultado obtenido
-
-```text
-
-```
-
- 
+## Evidencias de querys
+![](../recursos/act8_01.png)
+![](../recursos/act8_02.png)
+![](../recursos/act8_03.png)
 
 ## 3. Preguntas de análisis
 

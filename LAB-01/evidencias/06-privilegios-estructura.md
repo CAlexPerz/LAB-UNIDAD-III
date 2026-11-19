@@ -1,33 +1,9 @@
 # Actividad 6 — Cambios de privilegios y de estructura
 
-- **Estudiante:** [Nombre del estudiante]
-- **Actividad:** Parte A — Actividad 6: Cambios de privilegios y de estructura
-- **Script relacionado:** `sql/03-privilegios-estructura.sql`
-
- 
-
-## 1. Comandos ejecutados
-
-```sql
-REVOKE UPDATE ON clientes FROM soporte_ana;
-GRANT UPDATE ON clientes TO app_ventas;
-ALTER TABLE clientes ADD COLUMN segmento VARCHAR(20);
-
-CREATE ROLE rol_temporal LOGIN PASSWORD '<REDACTED>';
-DROP ROLE rol_temporal;
-
-SELECT linea FROM dba.bitacora WHERE linea LIKE '%statement:%' ORDER BY num;
-```
-
- 
-
-## 2. Resultado obtenido
-
-```text
-
-```
-
- 
+## Evidencias de querys
+![](../recursos/act6_01.png)
+![](../recursos/act6_02.png)
+![](../recursos/act6_03.png)
 
 ## 3. Preguntas de análisis
 

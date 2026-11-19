@@ -1,38 +1,10 @@
 # Actividad 15 — Límites: lecturas y volumen
 
-## 1. Comandos ejecutados
+### Evidencias de querys
+![](../recursos/act15_01.png)
+![](../recursos/act15_02.png)
 
-```bash
-psql "postgresql://soporte_ana:<REDACTED>@127.0.0.1/comercial" -c "SELECT nombre, rfc, telefono FROM clientes WHERE id = 3"
-```
-
-```sql
-UPDATE clientes SET segmento = 'regular';
-
-SELECT count(*) AS lineas_bitacora FROM dba.bitacora
-WHERE linea LIKE '%statement: UPDATE clientes SET segmento%';
-
-SELECT operacion, count(*) FROM auditoria.cambios_clientes GROUP BY operacion ORDER BY operacion;
-
-SELECT count(*) AS lecturas_soporte FROM dba.bitacora
-WHERE linea LIKE '%user=soporte_ana%SELECT nombre, rfc%';
-```
-
- 
-
-## 2. Resultado obtenido
-
-| Métrica consultada | Valor obtenido |
-| :--- | :--- |
-| `lineas_bitacora` | |
-| `DELETE` (en `auditoria.cambios_clientes`) | |
-| `INSERT` (en `auditoria.cambios_clientes`) | |
-| `UPDATE` (en `auditoria.cambios_clientes`) | |
-| `lecturas_soporte` | |
-
- 
-
-## 3. Preguntas de análisis
+##  Preguntas de análisis
 
 1. **Si `clientes` tuviera un millón de registros, ¿qué ocurriría con la auditoría tras un `UPDATE` sin `WHERE`?**
    >  

@@ -1,27 +1,5 @@
 # Actividad 5 — Accesos exitosos y fallidos
 
-## 1. Comandos ejecutados
-
-### Intentos de conexión por red
-```bash
-psql "postgresql://app_ventas:<REDACTED>@127.0.0.1/comercial" -c "SELECT 1"
-psql "postgresql://usuario_inexistente:<REDACTED>@127.0.0.1/comercial" -c "SELECT 1"
-psql "postgresql://app_ventas:<REDACTED>@127.0.0.1/comercial?application_name=app-ventas-web" -c "SELECT count(*) FROM clientes"
-```
-
-### Consulta de filtrado en `dba.bitacora`
-```sql
-SELECT linea FROM dba.bitacora WHERE linea LIKE '%client=127.0.0.1%' ORDER BY num;
-```
-
- 
-
-## 2. Resultado obtenido
-
-```text
-  
-```
-
 ### Desglose de una línea de acceso fallido (Sección 11.1)
 
 | Campo | Valor observado | Significado |
@@ -36,7 +14,8 @@ SELECT linea FROM dba.bitacora WHERE linea LIKE '%client=127.0.0.1%' ORDER BY nu
 | Mensaje | | |
 | Regla aplicada | | |
 
- 
+## Evidencias de querys
+![](../recursos/act5_01.png)
 
 ## 3. Preguntas de análisis
 

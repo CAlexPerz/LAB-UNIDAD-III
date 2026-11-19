@@ -9,8 +9,6 @@ GRANT SELECT ON clientes TO soporte_ana;
 ALTER ROLE app_ventas WITH PASSWORD 'Ventas_Practica_2026';
 ALTER ROLE soporte_ana WITH PASSWORD 'Soporte_Practica_2026';
 
-CREATE DATABASE comercial;
-
 -- PARTE A — Bitácora del servidor
 -- 7. Actividad 1 — Revisar la configuración de registro por defecto
 -- En la sesión de administrador:

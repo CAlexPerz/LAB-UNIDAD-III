@@ -13,6 +13,7 @@ CROSS JOIN LATERAL jsonb_each(a.valores_despues) d
 WHERE a.operacion = 'UPDATE' AND a.valores_antes -> d.key IS DISTINCT FROM d.value
 ORDER BY a.id_evento;
 
+
 -- 19. Actividad 13 — Altas y bajas
 -- Como administrador:
 INSERT INTO clientes (nombre, correo, rfc, edad, ciudad, codigo_postal)
@@ -28,6 +29,7 @@ FROM auditoria.cambios_clientes ORDER BY id_evento;
 ALTER TABLE clientes DISABLE TRIGGER trg_auditoria_clientes;
 UPDATE clientes SET rfc = 'GAMA780912GHI' WHERE id = 3;
 ALTER TABLE clientes ENABLE TRIGGER trg_auditoria_clientes;
+
 SELECT count(*) FROM auditoria.cambios_clientes;
 
 -- El conteo sigue en 3: el cambio no quedó en la tabla de auditoría. Revisa la bitácora:

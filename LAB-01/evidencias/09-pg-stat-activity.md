@@ -32,7 +32,9 @@ SELECT linea FROM dba.bitacora WHERE linea LIKE '%[<PID>]%' ORDER BY num;
 
 ```
 
- 
+## Evidencias de querys
+![](../recursos/act9_01.png)
+![](../recursos/act9_02.png)
 
 ## 3. Preguntas de análisis
 
